@@ -1,0 +1,470 @@
+---
+interface Project {
+  name: string;
+  description: string;
+  url: string;
+  live?: string;
+  language: string;
+  category: string;
+  featured: boolean;
+}
+
+const projects: Project[] = [
+  // Featured
+  {
+    name: "travelmap",
+    description: "Interactive travel map",
+    url: "https://github.com/EnriqueRS/travelmap",
+    live: "travelmap.custombots.es",
+    language: "Svelte",
+    category: "Featured",
+    featured: true
+  },
+  {
+    name: "freelingo",
+    description: "AI language learning platform (Ollama + CEFR)",
+    url: "https://github.com/EnriqueRS/freelingo",
+    live: "freelingo.app",
+    language: "JavaScript",
+    category: "Featured",
+    featured: true
+  },
+  {
+    name: "runapp",
+    description: "Running dashboard powered by Huawei Watch data",
+    url: "https://github.com/EnriqueRS/runapp",
+    live: "runapp.custombots.es",
+    language: "TypeScript",
+    category: "Featured",
+    featured: true
+  },
+  {
+    name: "sentinel-ai",
+    description: "AI project",
+    url: "https://github.com/EnriqueRS/sentinel-ai",
+    language: "Java",
+    category: "Featured",
+    featured: true
+  },
+  {
+    name: "antimolebot",
+    description: "Antimole bot",
+    url: "https://github.com/EnriqueRS/antimolebot",
+    language: "Svelte",
+    category: "Featured",
+    featured: true
+  },
+  // Java / Backend
+  {
+    name: "todo-spring",
+    description: "Spring Boot microservices",
+    url: "https://github.com/EnriqueRS/todo-spring",
+    language: "Java",
+    category: "Java",
+    featured: false
+  },
+  {
+    name: "prices",
+    description: "Price API",
+    url: "https://github.com/EnriqueRS/prices",
+    language: "Java",
+    category: "Java",
+    featured: false
+  },
+  {
+    name: "videorentalstore",
+    description: "Video rental store",
+    url: "https://github.com/EnriqueRS/videorentalstore",
+    language: "Java",
+    category: "Java",
+    featured: false
+  },
+  {
+    name: "albums-photos-api",
+    description: "Albums & photos API",
+    url: "https://github.com/EnriqueRS/albums-photos-api",
+    language: "Java",
+    category: "Java",
+    featured: false
+  },
+  {
+    name: "eureka-server",
+    description: "Eureka service discovery",
+    url: "https://github.com/EnriqueRS/eureka-server",
+    language: "Java",
+    category: "Java",
+    featured: false
+  },
+  {
+    name: "spring-empleos",
+    description: "Spring jobs app",
+    url: "https://github.com/EnriqueRS/spring-empleos",
+    language: "Java",
+    category: "Java",
+    featured: false
+  },
+  {
+    name: "MiniTwitter-MVVM",
+    description: "Mini Twitter with MVVM",
+    url: "https://github.com/EnriqueRS/MiniTwitter-MVVM",
+    language: "Java",
+    category: "Java",
+    featured: false
+  },
+  {
+    name: "caritas",
+    description: "Child behavior tracking",
+    url: "https://github.com/EnriqueRS/caritas",
+    language: "Java",
+    category: "Java",
+    featured: false
+  },
+  // JavaScript / TypeScript / Node
+  {
+    name: "express-backend",
+    description: "Express backend",
+    url: "https://github.com/EnriqueRS/express-backend",
+    language: "JavaScript",
+    category: "JavaScript",
+    featured: false
+  },
+  {
+    name: "drop-numbers",
+    description: "Game: Drop Numbers",
+    url: "https://github.com/EnriqueRS/drop-numbers",
+    language: "JavaScript",
+    category: "JavaScript",
+    featured: false
+  },
+  {
+    name: "wallabag-telegram-bot",
+    description: "Wallabag Telegram bot",
+    url: "https://github.com/EnriqueRS/wallabag-telegram-bot",
+    language: "JavaScript",
+    category: "JavaScript",
+    featured: false
+  },
+  {
+    name: "Movie-To-See-Server",
+    description: "Movie wishlist server",
+    url: "https://github.com/EnriqueRS/Movie-To-See-Server",
+    language: "JavaScript",
+    category: "JavaScript",
+    featured: false
+  },
+  {
+    name: "ToDo-react",
+    description: "React Todo app",
+    url: "https://github.com/EnriqueRS/ToDo-react",
+    language: "JavaScript",
+    category: "JavaScript",
+    featured: false
+  },
+  // Vue / Frontend
+  {
+    name: "HomeAssistantVUE",
+    description: "Home Assistant Vue UI",
+    url: "https://github.com/EnriqueRS/HomeAssistantVUE",
+    language: "Vue",
+    category: "Vue",
+    featured: false
+  },
+  {
+    name: "vue3-auth-jwt",
+    description: "Vue 3 Auth JWT",
+    url: "https://github.com/EnriqueRS/vue3-auth-jwt",
+    language: "Vue",
+    category: "Vue",
+    featured: false
+  },
+  {
+    name: "Vue-router",
+    description: "Vue Router project",
+    url: "https://github.com/EnriqueRS/Vue-router",
+    language: "Vue",
+    category: "Vue",
+    featured: false
+  },
+  {
+    name: "DinamicBankVueCLI",
+    description: "Dynamic Bank Vue CLI",
+    url: "https://github.com/EnriqueRS/DinamicBankVueCLI",
+    language: "Vue",
+    category: "Vue",
+    featured: false
+  },
+  {
+    name: "my-app-VUE",
+    description: "Vue app",
+    url: "https://github.com/EnriqueRS/my-app-VUE",
+    language: "Vue",
+    category: "Vue",
+    featured: false
+  },
+  {
+    name: "HelloWorldVUE",
+    description: "Hello World Vue",
+    url: "https://github.com/EnriqueRS/HelloWorldVUE",
+    language: "Vue",
+    category: "Vue",
+    featured: false
+  },
+  // Android / Kotlin
+  {
+    name: "FlaggApp-Kotlin",
+    description: "Flag app (Kotlin)",
+    url: "https://github.com/EnriqueRS/FlaggApp-Kotlin",
+    language: "Kotlin",
+    category: "Android",
+    featured: false
+  },
+  {
+    name: "Flagpp",
+    description: "Countries info app (MVVM)",
+    url: "https://github.com/EnriqueRS/Flagpp",
+    language: "Kotlin",
+    category: "Android",
+    featured: false
+  },
+  // PHP
+  {
+    name: "comidasemana",
+    description: "Weekly meal planner",
+    url: "https://github.com/EnriqueRS/comidasemana",
+    language: "PHP",
+    category: "PHP",
+    featured: false
+  },
+  // University Projects
+  {
+    name: "gavPujador",
+    description: "TFG — Drupal auction module",
+    url: "https://github.com/EnriqueRS/gavPujador",
+    language: "PHP",
+    category: "Academic",
+    featured: false
+  },
+  {
+    name: "gavWS",
+    description: "TFG — Virtual Art Gallery web service",
+    url: "https://github.com/EnriqueRS/gavWS",
+    language: "Java",
+    category: "Academic",
+    featured: false
+  },
+  {
+    name: "gavEJB",
+    description: "TFG — Virtual Art Gallery persistence (EJB)",
+    url: "https://github.com/EnriqueRS/gavEJB",
+    language: "Java",
+    category: "Academic",
+    featured: false
+  },
+  {
+    name: "geocachingCliente",
+    description: "Geocaching client (2 forks)",
+    url: "https://github.com/EnriqueRS/geocachingCliente",
+    language: "Java",
+    category: "Academic",
+    featured: false
+  },
+  {
+    name: "geocaching",
+    description: "Geocaching server",
+    url: "https://github.com/EnriqueRS/geocaching",
+    language: "Java",
+    category: "Academic",
+    featured: false
+  },
+  {
+    name: "GameNB",
+    description: "UMA — Video game: GameNB",
+    url: "https://github.com/EnriqueRS/GameNB",
+    language: "Java",
+    category: "Academic",
+    featured: false
+  },
+  {
+    name: "CrazyRacePursuit",
+    description: "UMA — Video game: Crazy Race Pursuit",
+    url: "https://github.com/EnriqueRS/CrazyRacePursuit",
+    language: "Java",
+    category: "Academic",
+    featured: false
+  },
+  // Others
+  {
+    name: "travelLanding",
+    description: "Travel landing page",
+    url: "https://github.com/EnriqueRS/travelLanding",
+    language: "TypeScript",
+    category: "TypeScript",
+    featured: false
+  },
+  {
+    name: "cypress",
+    description: "Cypress tests",
+    url: "https://github.com/EnriqueRS/cypress",
+    language: "JavaScript",
+    category: "Testing",
+    featured: false
+  }
+];
+
+const featuredProjects = projects.filter(p => p.featured);
+const otherProjects = projects.filter(p => !p.featured);
+const allCategories = ['All', ...new Set(projects.map(p => p.category))];
+
+const languageColors: Record<string, string> = {
+  "Java": "#b07219",
+  "TypeScript": "#2b7489",
+  "JavaScript": "#f1e05a",
+  "Vue": "#41b883",
+  "Svelte": "#ff3e00",
+  "Kotlin": "#A97BFF",
+  "PHP": "#4F5D95",
+};
+---
+
+<section id="projects" class="relative py-24 sm:py-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="reveal mb-16 text-center">
+      <span class="inline-block px-3 py-1 rounded-full text-xs font-mono uppercase tracking-widest text-[#06b6d4] border border-[rgba(6,182,212,0.3)] mb-4">
+        Projects
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-6">
+        Featured Work
+      </h2>
+      <p class="text-lg text-[#94a3b8] max-w-2xl mx-auto">
+        A collection of {projects.length} projects spanning Java, JavaScript, Vue, Android, and more.
+      </p>
+    </div>
+    
+    <!-- Filter buttons -->
+    <div class="reveal flex flex-wrap justify-center gap-2 mb-12" style="transition-delay: 100ms;">
+      {allCategories.map(category => (
+        <button 
+          class={`filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${category === 'All' ? 'active' : ''} border-[rgba(255,255,255,0.08)] text-[#94a3b8] hover:text-[#f1f5f9]`}
+          data-filter={category}
+        >
+          {category}
+        </button>
+      ))}
+    </div>
+    
+    <!-- Featured Projects Grid -->
+    <div class="reveal mb-8" data-category="Featured">
+      <h3 class="text-xl font-semibold mb-6 text-[#f1f5f9] flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-[#6366f1]"></span>
+        Featured Projects
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {featuredProjects.map((project, index) => (
+          <a 
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={`group block rounded-2xl glass p-6 sm:p-8 glow-hover transition-all duration-300 card-glow ${index === 0 ? 'md:col-span-2' : ''}`}
+          >
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-[#94a3b8] group-hover:text-[#6366f1] transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <h4 class="text-lg sm:text-xl font-bold text-[#f1f5f9] group-hover:text-[#6366f1] transition-colors">
+                  {project.name}
+                </h4>
+              </div>
+              <span 
+                class="px-3 py-1 rounded-full text-xs font-mono"
+                style={`background-color: ${languageColors[project.language] || '#94a3b8'}20; color: ${languageColors[project.language] || '#94a3b8'};`}
+              >
+                {project.language}
+              </span>
+            </div>
+            <p class="text-[#94a3b8] mb-4">{project.description}</p>
+            {project.live && (
+              <div class="flex items-center gap-2 text-sm text-[#06b6d4]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                </svg>
+                <span>{project.live}</span>
+              </div>
+            )}
+          </a>
+        ))}
+      </div>
+    </div>
+    
+    <!-- All Projects Grid -->
+    <div class="reveal" style="transition-delay: 200ms;" data-category="all">
+      <h3 class="text-xl font-semibold mb-6 text-[#f1f5f9] flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-[#8b5cf6]"></span>
+        All Projects
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {otherProjects.map(project => (
+          <a 
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={`group block rounded-xl glass p-5 glow-hover transition-all duration-300 hover:scale-[1.02]`}
+            data-project-category={project.category}
+          >
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-[#94a3b8] group-hover:text-[#6366f1] transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <h4 class="font-semibold text-[#f1f5f9] text-sm group-hover:text-[#6366f1] transition-colors">
+                  {project.name}
+                </h4>
+              </div>
+              <span 
+                class="w-3 h-3 rounded-full"
+                style={`background-color: ${languageColors[project.language] || '#94a3b8'};`}
+              ></span>
+            </div>
+            <p class="text-xs text-[#94a3b8]">{project.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('[data-project-category]');
+    
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active state
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const filter = btn.getAttribute('data-filter');
+        
+        // Filter projects
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-project-category');
+          if (filter === 'All' || category === filter) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 50);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+  });
+</script>

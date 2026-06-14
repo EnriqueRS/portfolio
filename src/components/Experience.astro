@@ -1,0 +1,102 @@
+---
+const experiences = [
+  {
+    title: "Senior Tech Engineer",
+    company: "Innusual",
+    period: "Oct 2024 – Present",
+    sector: "Banking (Allfunds Bank)",
+    description: "Bug resolution in legacy code, mass data loading app (Java/Sybase), unit testing, code optimization.",
+    stack: ["Java", "Sybase", "Bash", "PL/SQL", "Git"],
+    color: "#6366f1"
+  },
+  {
+    title: "Senior Developer",
+    company: "Tenant Evaluation",
+    period: "Jun 2021 – Oct 2024",
+    sector: "Tenant Screening",
+    description: "Monolith to microservices migration, vendor integrations (Square, Microbilt, Twilio), mentoring juniors.",
+    stack: ["Java 8/17", "SpringBoot", "MySQL", "Docker", "Kubernetes", "AWS", "Angular", "Vue", "RabbitMQ", "Kafka"],
+    color: "#8b5cf6"
+  },
+  {
+    title: "Mobile / Backend Developer",
+    company: "Grupo AL",
+    period: "Jan 2015 – Jun 2021",
+    sector: "Public Administration",
+    description: "Android + Java Spring backend, DGT SOAP integrations, Cordova cross-platform app development.",
+    stack: ["Java 6/8", "Spring", "Oracle", "Docker", "Android", "Cordova", "Ionic", "JSF"],
+    color: "#06b6d4"
+  },
+  {
+    title: "ABAP IV Developer (Intern)",
+    company: "CEMOSA",
+    period: "Mar 2014 – Jan 2015",
+    sector: "SAP Development",
+    description: "SAP module development (ABAP IV), material classification systems.",
+    stack: ["ABAP IV", "SAP", "MySQL"],
+    color: "#f43f5e"
+  }
+];
+---
+
+<section id="experience" class="relative py-24 sm:py-32">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="reveal mb-16 text-center">
+      <span class="inline-block px-3 py-1 rounded-full text-xs font-mono uppercase tracking-widest text-[#8b5cf6] border border-[rgba(139,92,246,0.3)] mb-4">
+        Experience
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-6">
+        Career Path
+      </h2>
+      <p class="text-lg text-[#94a3b8] max-w-2xl mx-auto">
+        Over 10 years of experience across banking, SaaS, and public administration sectors.
+      </p>
+    </div>
+    
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- Vertical line -->
+      <div class="absolute left-4 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[rgba(99,102,241,0.4)] to-transparent sm:-translate-x-px"></div>
+      
+      <!-- Experience items -->
+      {experiences.map((exp, index) => (
+        <div class={`reveal relative mb-12 last:mb-0 ${index % 2 === 0 ? 'sm:pr-[50%] sm:text-right' : 'sm:pl-[50%] sm:text-left'}`}>
+          <!-- Timeline dot -->
+          <div 
+            class="absolute top-6 w-4 h-4 rounded-full left-4 sm:left-1/2 sm:-translate-x-1/2 z-10"
+            style={`background-color: ${exp.color}; box-shadow: 0 0 12px ${exp.color}80;`}
+          ></div>
+          
+          <!-- Content card -->
+          <div class={`ml-12 sm:ml-0 ${index % 2 === 0 ? 'sm:mr-8' : 'sm:ml-8'}`}>
+            <div class="glass rounded-2xl p-6 sm:p-8 glow-hover transition-all duration-300 card-glow">
+              <!-- Header -->
+              <div class={`flex flex-col sm:flex-row ${index % 2 === 0 ? 'sm:justify-end' : 'sm:justify-start'} items-start sm:items-center gap-2 mb-4`}>
+                <span class="text-sm font-mono text-[#94a3b8]">{exp.period}</span>
+                <span class="hidden sm:inline text-[#475569]">·</span>
+                <span class="text-sm text-[#6366f1] font-medium">{exp.sector}</span>
+              </div>
+              
+              <h3 class="text-xl font-bold text-[#f1f5f9] mb-1">{exp.title}</h3>
+              <p class="text-lg text-[#94a3b8] mb-4">{exp.company}</p>
+              
+              <p class="text-[#94a3b8] mb-6 leading-relaxed">
+                {exp.description}
+              </p>
+              
+              <!-- Tech stack -->
+              <div class={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'sm:justify-end' : 'sm:justify-start'}`}>
+                {exp.stack.map(tech => (
+                  <span class="inline-block px-3 py-1 rounded-full text-xs font-mono bg-[rgba(99,102,241,0.1)] text-[#94a3b8] border border-[rgba(99,102,241,0.2)]">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

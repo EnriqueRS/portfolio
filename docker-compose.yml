@@ -1,0 +1,7 @@
+services:
+  portfolio:
+    build: .
+    container_name: portfolio
+    restart: unless-stopped
+    ports:
+      - "4321:80"

@@ -1,0 +1,102 @@
+---
+const navItems = [
+  { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 px-4 py-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="glass-strong rounded-2xl px-6 py-3 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#hero" class="text-lg font-bold gradient-text tracking-tight">
+        ERS
+      </a>
+      
+      <!-- Desktop nav -->
+      <div class="hidden md:flex items-center gap-8">
+        {navItems.map(item => (
+          <a 
+            href={item.href} 
+            class="nav-link text-sm font-medium text-[#94a3b8] hover:text-[#f1f5f9] transition-colors"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+      
+      <!-- Mobile menu button -->
+      <button 
+        id="mobile-menu-btn"
+        class="md:hidden p-2 rounded-lg hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6 text-[#f1f5f9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden mt-2 glass-strong rounded-2xl p-4">
+      <div class="flex flex-col gap-2">
+        {navItems.map(item => (
+          <a 
+            href={item.href} 
+            class="px-4 py-3 rounded-xl text-[#94a3b8] hover:text-[#f1f5f9] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+  
+  // Close mobile menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+  
+  // Active nav link based on scroll position
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: '-50% 0px -50% 0px',
+    threshold: 0
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('text-[#f1f5f9]');
+            link.classList.remove('text-[#94a3b8]');
+          } else {
+            link.classList.remove('text-[#f1f5f9]');
+            link.classList.add('text-[#94a3b8]');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+  
+  sections.forEach(section => observer.observe(section));
+</script>
