@@ -1,0 +1,161 @@
+---
+import VersionsNav from '../components/VersionsNav.astro';
+import en from '../i18n/en';
+import es from '../i18n/es';
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Enrique Ríos - Senior Tech Engineer & AI Engineer. Liquid Scroll portfolio." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <title>Enrique Ríos | Liquid</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{background:#050505;scroll-behavior:smooth}
+    body{font-family:'Outfit',sans-serif;color:#f0f0f0;background:transparent;overflow-x:hidden}
+    canvas#fluid{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;opacity:0.9}
+    .content{position:relative;z-index:1}
+    section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:6rem 2rem 4rem}
+    .hero-name{font-size:clamp(4rem,15vw,12rem);font-weight:900;letter-spacing:-0.06em;line-height:0.85;mix-blend-mode:difference;text-align:center}
+    .hero-role{font-family:'Geist Mono',monospace;font-size:clamp(0.7rem,1.2vw,0.9rem);color:#f6821f;letter-spacing:0.1em;text-align:center;margin-top:1.5rem;text-transform:uppercase}
+    .section-card{max-width:550px;background:rgba(10,10,10,0.8);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);padding:2.5rem}
+    .section-label{font-family:'Geist Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.15em;color:#f6821f;margin-bottom:0.8rem}
+    .section-heading{font-size:1.8rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:1rem}
+    .section-body{font-size:0.9rem;color:#888;line-height:1.7;font-weight:300}
+    .tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem}
+    .tag{font-family:'Geist Mono',monospace;font-size:0.6rem;padding:0.25rem 0.6rem;border:1px solid rgba(255,255,255,0.1);color:#888}
+    .tag.ai{border-color:rgba(200,80,192,0.3);color:#c850c0}
+    .links{display:flex;flex-direction:column;gap:0.6rem;margin-top:1rem}
+    .links a{color:#f0f0f0;text-decoration:none;font-size:0.85rem;padding:0.6rem;border:1px solid rgba(255,255,255,0.06);transition:all 0.3s}
+    .links a:hover{border-color:#f6821f;color:#f6821f}
+    /* Clip-path reveal on scroll */
+    section{clip-path:inset(0);animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 30%}
+    @keyframes reveal{from{clip-path:inset(30% 0 0 0)}to{clip-path:inset(0)}}
+  </style>
+</head>
+<body>
+  <VersionsNav current="/liquid" accent="#f6821f" />
+  <canvas id="fluid"></canvas>
+  <div class="content">
+    <section>
+      <div>
+        <h1 class="hero-name">Enrique<br/>Ríos</h1>
+        <p class="hero-role">Senior Tech Engineer → AI Engineer</p>
+      </div>
+    </section>
+    <section>
+      <div class="section-card">
+        <div class="section-label">Experiencia</div>
+        <h2 class="section-heading">Donde he trabajado</h2>
+        <div class="section-body">
+          <p><strong>Senior Tech Engineer</strong> - Allfunds Bank (2024)</p>
+          <p><strong>Senior Developer</strong> - Tenant Evaluation (2021-2024)</p>
+          <p><strong>Mobile/Backend Dev</strong> - Grupo AL (2015-2021)</p>
+          <p><strong>ABAP Developer</strong> - CEMOSA (2014-2015)</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="section-card">
+        <div class="section-label">Proyectos</div>
+        <h2 class="section-heading">Side projects</h2>
+        <div class="links">
+          <a href="https://github.com/EnriqueRS/travelmap" target="_blank">TravelMap - SvelteKit + NestJS + PostGIS</a>
+          <a href="https://github.com/EnriqueRS/runapp" target="_blank">RunApp - Next.js + PostgreSQL</a>
+          <a href="https://github.com/EnriqueRS/antimolebot" target="_blank">AntimoleBot - Hono + Cloudflare Workers</a>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="section-card">
+        <div class="section-label">Tech Stack</div>
+        <h2 class="section-heading">Tecnologías</h2>
+        <div class="tags">
+          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Python</span>
+          <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span><span class="tag">AWS</span><span class="tag">PostgreSQL</span>
+        </div>
+        <div class="tags" style="margin-top:0.8rem">
+          <span class="tag ai">LLM</span><span class="tag ai">AI Agents</span><span class="tag ai">RAG</span>
+          <span class="tag ai">LangChain</span><span class="tag ai">MLOps</span>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="section-card">
+        <div class="section-label">Contacto</div>
+        <h2 class="section-heading">Hablemos</h2>
+        <div class="links">
+          <a href="https://github.com/EnriqueRS" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/enrique-rios-santos-906666b" target="_blank">LinkedIn</a>
+          <a href="mailto:enriquers85@gmail.com">enriquers85@gmail.com</a>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    // Performant metaballs using radial gradients + compositing
+    const canvas = document.getElementById('fluid') as HTMLCanvasElement;
+    const ctx = canvas.getContext('2d')!;
+    let w = canvas.width = window.innerWidth;
+    let h = canvas.height = window.innerHeight;
+    let mx = w / 2, my = h / 2;
+
+    const balls = Array.from({ length: 8 }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 2,
+      vy: (Math.random() - 0.5) * 2,
+      r: 100 + Math.random() * 150,
+    }));
+
+    window.addEventListener('resize', () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; });
+    window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+    function draw() {
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = '#050505';
+      ctx.fillRect(0, 0, w, h);
+
+      ctx.globalCompositeOperation = 'lighter';
+
+      balls.forEach(b => {
+        b.x += b.vx;
+        b.y += b.vy;
+        if (b.x < -b.r) b.x = w + b.r;
+        if (b.x > w + b.r) b.x = -b.r;
+        if (b.y < -b.r) b.y = h + b.r;
+        if (b.y > h + b.r) b.y = -b.r;
+        // Attract to mouse
+        b.vx += (mx - b.x) * 0.00005;
+        b.vy += (my - b.y) * 0.00005;
+        b.vx *= 0.99;
+        b.vy *= 0.99;
+
+        const grad = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+        grad.addColorStop(0, 'rgba(246, 130, 31, 0.15)');
+        grad.addColorStop(0.4, 'rgba(200, 80, 192, 0.06)');
+        grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(b.x - b.r, b.y - b.r, b.r * 2, b.r * 2);
+      });
+
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+  <script define:vars={{en,es}}>
+    const translations={en,es};let currentLang=localStorage.getItem('lang')||'es';
+    document.getElementById('lang-toggle').textContent=currentLang==='en'?'ES':'EN';
+    document.getElementById('lang-toggle').addEventListener('click',()=>{
+      currentLang=currentLang==='en'?'es':'en';localStorage.setItem('lang',currentLang);
+      document.getElementById('lang-toggle').textContent=currentLang==='en'?'ES':'EN';
+    });
+  </script>
+</body>
+</html>

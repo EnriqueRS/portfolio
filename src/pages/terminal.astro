@@ -1,0 +1,141 @@
+---
+import en from '../i18n/en';
+import es from '../i18n/es';
+import TerminalCanvas from '../components/terminal/TerminalCanvas';
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Enrique Ríos - Terminal portfolio. Type commands to explore." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>Enrique Ríos | Terminal</title>
+  <style>
+    @import "tailwindcss";
+
+    :root {
+      --color-bg: #0a0a0a;
+      --color-border: #1a1a1a;
+      --color-text: #f0f0f0;
+      --color-text-secondary: #888888;
+      --color-accent: #00ff88;
+      --font-display: 'Outfit', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { background: var(--color-bg); }
+    body {
+      font-family: var(--font-mono);
+      background: transparent;
+      color: var(--color-text);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(12px);
+      background: rgba(10, 10, 10, 0.7);
+      border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+    }
+
+    .nav-logo {
+      font-size: 0.9rem;
+      color: var(--color-text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo .accent { color: var(--color-accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      transition: color 0.3s;
+      border: 1px solid var(--color-border);
+      padding: 0.3rem 0.6rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    .lang-btn {
+      font-size: 0.65rem;
+      background: none;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .lang-btn:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">e<span class="accent">.</span>ríos</a>
+    <div class="nav-links">
+      <a href="/">Infinite Room</a>
+      <a href="/particle">Particles</a>
+      <a href="/gravity">Gravity</a>
+      <a href="/liquid">Liquid</a>
+      <a href="/kinetic">Kinetic</a>
+      <a href="/noise">Noise</a>
+      <a href="/magnetic">Magnetic</a>
+      <a href="/collage">Collage</a>
+      <a href="/parallax">Parallax</a>
+    </div>
+    <button id="lang-toggle" class="lang-btn" title="Switch language">EN</button>
+  </nav>
+
+  <!-- Terminal + Shader Background -->
+  <TerminalCanvas client:only="react" />
+
+  <!-- i18n (minimal, mostly for potential future use) -->
+  <script define:vars={{ en, es }}>
+    const translations = { en, es };
+    let currentLang = localStorage.getItem('lang') || 'es';
+
+    document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'ES' : 'EN';
+
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'es' : 'en';
+      localStorage.setItem('lang', currentLang);
+      document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'ES' : 'EN';
+    });
+  </script>
+</body>
+</html>

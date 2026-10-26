@@ -1,0 +1,143 @@
+---
+import VersionsNav from '../components/VersionsNav.astro';
+import en from '../i18n/en';
+import es from '../i18n/es';
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Enrique Ríos - Senior Tech Engineer & AI Engineer. Kinetic Typography portfolio." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <title>Enrique Ríos | Kinetic</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{background:#050505;scroll-behavior:smooth}
+    body{font-family:'Outfit',sans-serif;color:#f0f0f0;background:#050505;overflow-x:hidden}
+    /* Animated background grid */
+    body::before{content:'';position:fixed;inset:0;z-index:0;background:linear-gradient(rgba(246,130,31,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(246,130,31,0.03) 1px,transparent 1px);background-size:60px 60px;animation:grid-move 20s linear infinite}
+    @keyframes grid-move{to{background-position:60px 60px}}
+    section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:6rem 2rem 4rem;position:relative;overflow:visible;z-index:1}
+    /* Hero kinetic text */
+    .hero-wrap{text-align:center;overflow:visible}
+    .hero-line{display:block;font-size:clamp(3.5rem,14vw,10rem);font-weight:900;letter-spacing:-0.06em;line-height:0.9;opacity:0;transform:translateY(100%) rotate(3deg);animation:slideUp 1.2s cubic-bezier(0.16,1,0.3,1) forwards}
+    .hero-line:nth-child(2){animation-delay:0.2s}
+    .hero-line:nth-child(3){animation-delay:0.4s;color:#f6821f;text-shadow:0 0 40px rgba(246,130,31,0.3)}
+    @keyframes slideUp{to{opacity:1;transform:translateY(0) rotate(0)}}
+    .hero-role{font-family:'Geist Mono',monospace;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:#666;margin-top:2rem;opacity:0;animation:fadeIn 1s 0.8s forwards}
+    @keyframes fadeIn{to{opacity:1}}
+    /* Scroll-triggered sections */
+    .kinetic-section{opacity:0;transform:translateY(60px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+    .kinetic-section.visible{opacity:1;transform:translateY(0)}
+    .section-title{font-size:clamp(2rem,6vw,4rem);font-weight:800;letter-spacing:-0.04em;margin-bottom:1.5rem}
+    .section-title span{display:inline-block;transition:transform 0.3s}
+    .section-title:hover span{transform:rotate(-2deg) scale(1.05)}
+    .content-card{max-width:600px;margin:0 auto}
+    .exp-item{padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .exp-item h3{font-size:1rem;font-weight:600}
+    .exp-item p{font-family:'Geist Mono',monospace;font-size:0.7rem;color:#666;margin-top:0.2rem}
+    .project-link{display:block;padding:1rem;margin-top:0.5rem;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:#f0f0f0;transition:all 0.3s;font-size:0.9rem}
+    .project-link:hover{border-color:#f6821f;transform:translateX(8px);color:#f6821f}
+    .project-link small{font-family:'Geist Mono',monospace;font-size:0.65rem;color:#666;display:block;margin-top:0.2rem}
+    .tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem}
+    .tag{font-family:'Geist Mono',monospace;font-size:0.6rem;padding:0.3rem 0.6rem;border:1px solid rgba(255,255,255,0.1);color:#888;transition:all 0.3s}
+    .tag:hover{border-color:#f6821f;color:#f6821f;transform:rotate(-1deg)}
+    .tag.ai{border-color:rgba(200,80,192,0.3);color:#c850c0}
+    .contact-link{display:flex;align-items:center;gap:0.8rem;padding:0.8rem;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:#f0f0f0;margin-top:0.6rem;transition:all 0.3s}
+    .contact-link:hover{border-color:#f6821f;color:#f6821f}
+    /* SVG line decoration */
+    .svg-line{position:absolute;top:0;left:50%;width:2px;height:100%;background:linear-gradient(to bottom,transparent,rgba(246,130,31,0.2),transparent)}
+    /* Marquee */
+    .marquee{overflow:hidden;white-space:nowrap;font-size:clamp(1rem,3vw,2rem);font-weight:300;color:rgba(255,255,255,0.04);padding:2rem 0;border-top:1px solid rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.03)}
+    .marquee span{display:inline-block;animation:scroll-left 20s linear infinite}
+    @keyframes scroll-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  </style>
+</head>
+<body>
+  <VersionsNav current="/kinetic" accent="#f6821f" />
+
+  <section>
+    <div class="hero-wrap">
+      <span class="hero-line">Enrique</span>
+      <span class="hero-line">Ríos</span>
+      <span class="hero-line">Santos</span>
+      <p class="hero-role">Senior Tech Engineer → AI Engineer</p>
+    </div>
+  </section>
+
+  <div class="marquee"><span>JAVA · SPRING BOOT · PYTHON · TYPESCRIPT · REACT · DOCKER · KUBERNETES · AWS · LLM · RAG · AI AGENTS ·&nbsp;&nbsp;JAVA · SPRING BOOT · PYTHON · TYPESCRIPT · REACT · DOCKER · KUBERNETES · AWS · LLM · RAG · AI AGENTS ·&nbsp;&nbsp;</span></div>
+
+  <section>
+    <div class="kinetic-section">
+      <div class="content-card">
+        <h2 class="section-title"><span>Experiencia</span></h2>
+        <div class="exp-item"><h3>Senior Tech Engineer</h3><p>Allfunds Bank - 2024-Presente</p></div>
+        <div class="exp-item"><h3>Senior Developer</h3><p>Tenant Evaluation - 2021-2024</p></div>
+        <div class="exp-item"><h3>Mobile/Backend Developer</h3><p>Grupo AL - 2015-2021</p></div>
+        <div class="exp-item"><h3>ABAP Developer</h3><p>CEMOSA - 2014-2015</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kinetic-section">
+      <div class="content-card">
+        <h2 class="section-title"><span>Proyectos</span></h2>
+        <a href="https://github.com/EnriqueRS/travelmap" target="_blank" class="project-link">TravelMap<small>SvelteKit + NestJS + PostGIS</small></a>
+        <a href="https://github.com/EnriqueRS/runapp" target="_blank" class="project-link">RunApp<small>Next.js + PostgreSQL</small></a>
+        <a href="https://github.com/EnriqueRS/antimolebot" target="_blank" class="project-link">AntimoleBot<small>Hono + Cloudflare Workers</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kinetic-section">
+      <div class="content-card">
+        <h2 class="section-title"><span>Stack</span></h2>
+        <div class="tags">
+          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Python</span>
+          <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span><span class="tag">AWS</span><span class="tag">PostgreSQL</span>
+        </div>
+        <div class="tags" style="margin-top:1rem">
+          <span class="tag ai">LLM Integration</span><span class="tag ai">AI Agents</span><span class="tag ai">RAG</span>
+          <span class="tag ai">LangChain</span><span class="tag ai">MLOps</span><span class="tag ai">Vector DB</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kinetic-section">
+      <div class="content-card">
+        <h2 class="section-title"><span>Contacto</span></h2>
+        <a href="https://github.com/EnriqueRS" target="_blank" class="contact-link">GitHub - github.com/EnriqueRS</a>
+        <a href="https://www.linkedin.com/in/enrique-rios-santos-906666b" target="_blank" class="contact-link">LinkedIn</a>
+        <a href="mailto:enriquers85@gmail.com" class="contact-link">enriquers85@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Intersection Observer for scroll reveals
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.kinetic-section').forEach(el => observer.observe(el));
+  </script>
+  <script define:vars={{en,es}}>
+    let currentLang=localStorage.getItem('lang')||'es';
+    document.getElementById('lang-toggle').textContent=currentLang==='en'?'ES':'EN';
+    document.getElementById('lang-toggle').addEventListener('click',()=>{
+      currentLang=currentLang==='en'?'es':'en';localStorage.setItem('lang',currentLang);
+      document.getElementById('lang-toggle').textContent=currentLang==='en'?'ES':'EN';
+    });
+  </script>
+</body>
+</html>

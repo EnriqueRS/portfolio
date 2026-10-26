@@ -1,0 +1,149 @@
+---
+import VersionsNav from '../components/VersionsNav.astro';
+import en from '../i18n/en';
+import es from '../i18n/es';
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Enrique Ríos - Senior Tech Engineer & AI Engineer. Magnetic Scroll portfolio." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <title>Enrique Ríos | Magnetic</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{background:#050505;scroll-behavior:smooth}
+    body{font-family:'Outfit',sans-serif;color:#f0f0f0;background:#050505;overflow-x:hidden}
+    section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:6rem 2rem 4rem;perspective:1000px}
+    /* Hero parallax layers */
+    .hero-layers{position:relative;text-align:center}
+    .hero-layer{transition:transform 0.1s ease-out}
+    .hero-name{font-size:clamp(3.5rem,10vw,7rem);font-weight:900;letter-spacing:-0.05em;line-height:0.9}
+    .hero-name-back{position:absolute;top:-8px;left:-8px;right:0;font-size:clamp(3.5rem,10vw,7rem);font-weight:900;letter-spacing:-0.05em;line-height:0.9;-webkit-text-stroke:2px rgba(246,130,31,0.4);color:transparent;z-index:-1}
+    .hero-role{font-family:'Geist Mono',monospace;font-size:0.75rem;color:#f6821f;letter-spacing:0.15em;text-transform:uppercase;margin-top:2rem}
+    /* Tilt cards */
+    .tilt-card{background:rgba(10,10,10,0.9);border:1px solid rgba(255,255,255,0.06);padding:2rem;max-width:500px;width:100%;transition:transform 0.15s ease-out,box-shadow 0.3s;transform-style:preserve-3d}
+    .tilt-card:hover{box-shadow:0 20px 60px rgba(246,130,31,0.08)}
+    .section-label{font-family:'Geist Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.15em;color:#f6821f;margin-bottom:0.8rem}
+    .section-heading{font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:1rem}
+    .exp-item{padding:0.8rem 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+    .exp-item h3{font-size:0.9rem;font-weight:600}
+    .exp-item p{font-family:'Geist Mono',monospace;font-size:0.65rem;color:#666;margin-top:0.15rem}
+    .project-link{display:block;padding:0.8rem;margin-top:0.5rem;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:#f0f0f0;transition:all 0.3s}
+    .project-link:hover{border-color:#f6821f;color:#f6821f;transform:translateX(4px)}
+    .project-link small{font-family:'Geist Mono',monospace;font-size:0.6rem;color:#666}
+    .tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem}
+    .tag{font-family:'Geist Mono',monospace;font-size:0.6rem;padding:0.25rem 0.6rem;border:1px solid rgba(255,255,255,0.08);color:#888}
+    .tag.ai{border-color:rgba(200,80,192,0.3);color:#c850c0}
+    .contact-link{display:block;padding:0.7rem;margin-top:0.5rem;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:#f0f0f0;transition:all 0.3s}
+    .contact-link:hover{border-color:#f6821f;color:#f6821f}
+    /* Sticky sections */
+    .sticky-section{position:sticky;top:4rem}
+    /* Gradient that follows scroll */
+    .scroll-gradient{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1;background:radial-gradient(circle 400px at var(--gx,50%) var(--gy,50%),rgba(246,130,31,0.08),transparent 60%);transition:background 0.1s}
+  </style>
+</head>
+<body>
+  <VersionsNav current="/magnetic" accent="#f6821f" />
+  <div class="scroll-gradient" id="scroll-grad"></div>
+
+  <section>
+    <div class="hero-layers" id="hero-layers">
+      <div class="hero-name-back hero-layer" data-depth="0.3">Enrique Ríos</div>
+      <h1 class="hero-name hero-layer" data-depth="0.1">Enrique Ríos</h1>
+      <p class="hero-role hero-layer" data-depth="0.05">Senior Tech Engineer → AI Engineer</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="tilt-card" data-tilt>
+      <div class="section-label">Experiencia</div>
+      <h2 class="section-heading">Donde he trabajado</h2>
+      <div class="exp-item"><h3>Senior Tech Engineer</h3><p>Allfunds Bank - 2024</p></div>
+      <div class="exp-item"><h3>Senior Developer</h3><p>Tenant Evaluation - 2021-2024</p></div>
+      <div class="exp-item"><h3>Mobile/Backend Dev</h3><p>Grupo AL - 2015-2021</p></div>
+      <div class="exp-item"><h3>ABAP Developer</h3><p>CEMOSA - 2014-2015</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="tilt-card" data-tilt>
+      <div class="section-label">Proyectos</div>
+      <h2 class="section-heading">Side projects</h2>
+      <a href="https://github.com/EnriqueRS/travelmap" target="_blank" class="project-link">TravelMap <small>SvelteKit + NestJS + PostGIS</small></a>
+      <a href="https://github.com/EnriqueRS/runapp" target="_blank" class="project-link">RunApp <small>Next.js + PostgreSQL</small></a>
+      <a href="https://github.com/EnriqueRS/antimolebot" target="_blank" class="project-link">AntimoleBot <small>Hono + Cloudflare Workers</small></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="tilt-card" data-tilt>
+      <div class="section-label">Tech Stack</div>
+      <h2 class="section-heading">Tecnologías</h2>
+      <div class="tags">
+        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Python</span>
+        <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Docker</span>
+        <span class="tag">K8s</span><span class="tag">AWS</span><span class="tag">PostgreSQL</span>
+      </div>
+      <div class="tags" style="margin-top:0.8rem">
+        <span class="tag ai">LLM</span><span class="tag ai">AI Agents</span><span class="tag ai">RAG</span>
+        <span class="tag ai">LangChain</span><span class="tag ai">MLOps</span><span class="tag ai">Vector DB</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="tilt-card" data-tilt>
+      <div class="section-label">Contacto</div>
+      <h2 class="section-heading">Hablemos</h2>
+      <a href="https://github.com/EnriqueRS" target="_blank" class="contact-link">GitHub</a>
+      <a href="https://www.linkedin.com/in/enrique-rios-santos-906666b" target="_blank" class="contact-link">LinkedIn</a>
+      <a href="mailto:enriquers85@gmail.com" class="contact-link">enriquers85@gmail.com</a>
+    </div>
+  </section>
+
+  <script>
+    // Parallax hero layers
+    const layers = document.querySelectorAll('.hero-layer');
+    document.addEventListener('mousemove', (e) => {
+      const cx = (e.clientX / window.innerWidth - 0.5) * 2;
+      const cy = (e.clientY / window.innerHeight - 0.5) * 2;
+      layers.forEach((layer) => {
+        const depth = parseFloat((layer as HTMLElement).dataset.depth || '0');
+        const x = cx * depth * 30;
+        const y = cy * depth * 20;
+        (layer as HTMLElement).style.transform = `translate(${x}px, ${y}px)`;
+      });
+      // Gradient follows mouse
+      const grad = document.getElementById('scroll-grad');
+      if (grad) { grad.style.setProperty('--gx', e.clientX / window.innerWidth * 100 + '%'); grad.style.setProperty('--gy', e.clientY / window.innerHeight * 100 + '%'); }
+    });
+
+    // Tilt cards
+    document.querySelectorAll('[data-tilt]').forEach(card => {
+      card.addEventListener('mousemove', (e: Event) => {
+        const ev = e as MouseEvent;
+        const rect = (card as HTMLElement).getBoundingClientRect();
+        const x = (ev.clientX - rect.left) / rect.width - 0.5;
+        const y = (ev.clientY - rect.top) / rect.height - 0.5;
+        (card as HTMLElement).style.transform = `perspective(800px) rotateY(${x*8}deg) rotateX(${-y*8}deg)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        (card as HTMLElement).style.transform = 'perspective(800px) rotateY(0) rotateX(0)';
+      });
+    });
+  </script>
+  <script define:vars={{en,es}}>
+    let currentLang=localStorage.getItem('lang')||'es';
+    document.getElementById('lang-toggle').textContent=currentLang==='en'?'ES':'EN';
+    document.getElementById('lang-toggle').addEventListener('click',()=>{
+      currentLang=currentLang==='en'?'es':'en';localStorage.setItem('lang',currentLang);
+      document.getElementById('lang-toggle').textContent=currentLang==='en'?'ES':'EN';
+    });
+  </script>
+</body>
+</html>

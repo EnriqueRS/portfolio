@@ -1,0 +1,190 @@
+---
+import VersionsNav from '../components/VersionsNav.astro';
+import en from '../i18n/en';
+import es from '../i18n/es';
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Enrique Ríos - Senior Tech Engineer & AI Engineer. Noise & Grain portfolio." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <title>Enrique Ríos | Noise</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{background:#0a0a0a}
+    body{font-family:'Outfit',sans-serif;color:#f0f0f0;overflow-x:hidden}
+    canvas#noise-bg{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;opacity:0.6}
+    .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    .content{position:relative;z-index:2}
+    /* Brutalist layout */
+    .hero-section{min-height:100vh;display:grid;grid-template-columns:1fr;align-items:end;padding:4rem 3rem 6rem}
+    .hero-name{font-size:clamp(5rem,20vw,15rem);font-weight:900;letter-spacing:-0.07em;line-height:0.8;text-transform:uppercase}
+    .hero-name .stroke{-webkit-text-stroke:2px #f0f0f0;color:transparent}
+    .hero-sub{font-family:'Geist Mono',monospace;font-size:0.75rem;color:#f6821f;margin-top:2rem;letter-spacing:0.1em;text-transform:uppercase;max-width:400px}
+    section{padding:6rem 3rem;border-top:1px solid rgba(255,255,255,0.04)}
+    .brutal-grid{display:grid;grid-template-columns:200px 1fr;gap:4rem;max-width:900px}
+    .brutal-label{font-family:'Geist Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.2em;color:#666;padding-top:0.3rem}
+    .brutal-content h3{font-size:1.1rem;font-weight:600;margin-bottom:0.3rem}
+    .brutal-content p{font-size:0.85rem;color:#888;font-weight:300;margin-bottom:1.2rem}
+    .brutal-content a{color:#f0f0f0;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);transition:border-color 0.3s}
+    .brutal-content a:hover{border-color:#f6821f;color:#f6821f}
+    .tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem}
+    .tag{font-family:'Geist Mono',monospace;font-size:0.6rem;padding:0.3rem 0.7rem;background:rgba(255,255,255,0.03);color:#aaa;border:1px solid rgba(255,255,255,0.06)}
+    .tag.ai{color:#c850c0;border-color:rgba(200,80,192,0.2)}
+    /* Glitch hover on cards */
+    .glitch-card{padding:1.2rem;border:1px solid rgba(255,255,255,0.06);margin-bottom:0.8rem;transition:all 0.3s;position:relative}
+    .glitch-card:hover{border-color:#f6821f;transform:skewX(-1deg)}
+    .glitch-card:hover::after{content:'';position:absolute;inset:0;background:rgba(246,130,31,0.02);clip-path:polygon(0 30%,100% 25%,100% 75%,0 70%)}
+    @media(max-width:768px){
+      .brutal-grid{grid-template-columns:1fr;gap:1rem}
+      .hero-section{padding:4rem 1.5rem 3rem}
+      section{padding:3rem 1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <VersionsNav current="/noise" accent="#f6821f" />
+  <canvas id="noise-bg"></canvas>
+  <div class="grain"></div>
+  <div class="content">
+    <div class="hero-section">
+      <div>
+        <h1 class="hero-name"><span class="stroke">Enrique</span><br/>Ríos</h1>
+        <p class="hero-sub">Senior Tech Engineer pivoting to AI. 10+ years building production software.</p>
+      </div>
+    </div>
+
+    <section>
+      <div class="brutal-grid">
+        <div class="brutal-label">Experiencia</div>
+        <div class="brutal-content">
+          <div class="glitch-card"><h3>Senior Tech Engineer</h3><p>Allfunds Bank - 2024-Presente</p></div>
+          <div class="glitch-card"><h3>Senior Developer</h3><p>Tenant Evaluation - 2021-2024</p></div>
+          <div class="glitch-card"><h3>Mobile/Backend Dev</h3><p>Grupo AL - 2015-2021</p></div>
+          <div class="glitch-card"><h3>ABAP Developer</h3><p>CEMOSA - 2014-2015</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="brutal-grid">
+        <div class="brutal-label">Proyectos</div>
+        <div class="brutal-content">
+          <div class="glitch-card"><h3><a href="https://github.com/EnriqueRS/travelmap" target="_blank">TravelMap</a></h3><p>SvelteKit + NestJS + PostGIS</p></div>
+          <div class="glitch-card"><h3><a href="https://github.com/EnriqueRS/runapp" target="_blank">RunApp</a></h3><p>Next.js + PostgreSQL</p></div>
+          <div class="glitch-card"><h3><a href="https://github.com/EnriqueRS/antimolebot" target="_blank">AntimoleBot</a></h3><p>Hono + Cloudflare Workers</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="brutal-grid">
+        <div class="brutal-label">Stack</div>
+        <div class="brutal-content">
+          <div class="tags">
+            <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Python</span>
+            <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Docker</span>
+            <span class="tag">K8s</span><span class="tag">AWS</span><span class="tag">PostgreSQL</span>
+          </div>
+          <div class="tags" style="margin-top:1rem">
+            <span class="tag ai">LLM</span><span class="tag ai">AI Agents</span><span class="tag ai">RAG</span>
+            <span class="tag ai">LangChain</span><span class="tag ai">MLOps</span><span class="tag ai">Vector DB</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="brutal-grid">
+        <div class="brutal-label">Contacto</div>
+        <div class="brutal-content">
+          <p><a href="https://github.com/EnriqueRS" target="_blank">GitHub</a></p>
+          <p><a href="https://www.linkedin.com/in/enrique-rios-santos-906666b" target="_blank">LinkedIn</a></p>
+          <p><a href="mailto:enriquers85@gmail.com">enriquers85@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    // Animated noise using low-res canvas + scale up
+    const c = document.getElementById('noise-bg') as HTMLCanvasElement;
+    const ctx = c.getContext('2d')!;
+    // Render at 1/6 resolution for performance
+    const scale = 6;
+    let w: number, h: number, sw: number, sh: number;
+
+    function resize() {
+      w = window.innerWidth; h = window.innerHeight;
+      sw = Math.ceil(w / scale); sh = Math.ceil(h / scale);
+      c.width = sw; c.height = sh;
+      c.style.width = w + 'px'; c.style.height = h + 'px';
+      c.style.imageRendering = 'pixelated';
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Simple hash-based noise
+    function hash(x: number, y: number, seed: number) {
+      let h = seed + x * 374761393 + y * 668265263;
+      h = (h ^ (h >> 13)) * 1274126177;
+      h = h ^ (h >> 16);
+      return (h & 0x7fffffff) / 0x7fffffff;
+    }
+
+    function smoothNoise(x: number, y: number, seed: number) {
+      const ix = Math.floor(x), iy = Math.floor(y);
+      const fx = x - ix, fy = y - iy;
+      const sx = fx * fx * (3 - 2 * fx), sy = fy * fy * (3 - 2 * fy);
+      const a = hash(ix, iy, seed), b = hash(ix + 1, iy, seed);
+      const c = hash(ix, iy + 1, seed), d = hash(ix + 1, iy + 1, seed);
+      return a * (1 - sx) * (1 - sy) + b * sx * (1 - sy) + c * (1 - sx) * sy + d * sx * sy;
+    }
+
+    function fbm(x: number, y: number, seed: number) {
+      let val = 0, amp = 0.5;
+      for (let i = 0; i < 4; i++) {
+        val += amp * smoothNoise(x, y, seed + i * 100);
+        x *= 2; y *= 2; amp *= 0.5;
+      }
+      return val;
+    }
+
+    let t = 0;
+    function draw() {
+      t += 0.008;
+      const imgData = ctx.createImageData(sw, sh);
+      const data = imgData.data;
+
+      for (let y = 0; y < sh; y++) {
+        for (let x = 0; x < sw; x++) {
+          const nx = x * 0.03 + t;
+          const ny = y * 0.03 + t * 0.4;
+          const n = fbm(nx, ny, 42);
+          const idx = (y * sw + x) * 4;
+          // Dark warm noise
+          data[idx] = n * 60;      // R
+          data[idx + 1] = n * 20;  // G
+          data[idx + 2] = n * 12;  // B
+          data[idx + 3] = 255;
+        }
+      }
+      ctx.putImageData(imgData, 0, 0);
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+  <script define:vars={{en,es}}>
+    let currentLang=localStorage.getItem('lang')||'es';
+    document.getElementById('lang-toggle').textContent=currentLang==='en'?'ES':'EN';
+    document.getElementById('lang-toggle').addEventListener('click',()=>{
+      currentLang=currentLang==='en'?'es':'en';localStorage.setItem('lang',currentLang);
+      document.getElementById('lang-toggle').textContent=currentLang==='en'?'ES':'EN';
+    });
+  </script>
+</body>
+</html>

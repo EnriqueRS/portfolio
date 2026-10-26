@@ -1,0 +1,129 @@
+---
+import VersionsNav from '../components/VersionsNav.astro';
+import en from '../i18n/en';
+import es from '../i18n/es';
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Enrique Ríos - Senior Tech Engineer & AI Engineer. Collage Digital portfolio." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <title>Enrique Ríos | Collage</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{background:#050505;scroll-behavior:smooth}
+    body{font-family:'Outfit',sans-serif;color:#f0f0f0;background:#050505;overflow-x:hidden}
+    section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:6rem 2rem 4rem;position:relative}
+    /* SVG blob decorations */
+    .blob{position:absolute;z-index:0;opacity:0.25;animation:morph 8s ease-in-out infinite alternate;filter:blur(60px)}
+    .blob-1{top:5%;right:5%;width:400px;height:400px}
+    .blob-2{bottom:10%;left:0%;width:350px;height:350px;animation-delay:-4s}
+    @keyframes morph{
+      0%{border-radius:60% 40% 30% 70% / 60% 30% 70% 40%}
+      50%{border-radius:30% 60% 70% 40% / 50% 60% 30% 60%}
+      100%{border-radius:50% 50% 40% 60% / 40% 60% 50% 50%}
+    }
+    /* Hero with mask */
+    .hero-mask{position:relative;text-align:center}
+    .hero-name{font-size:clamp(4rem,14vw,10rem);font-weight:900;letter-spacing:-0.06em;line-height:0.85;background:linear-gradient(135deg,#f6821f,#c850c0,#4158d0);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradient-shift 6s ease infinite}
+    @keyframes gradient-shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+    .hero-name{background-size:200% 200%}
+    .hero-sub{font-family:'Geist Mono',monospace;font-size:0.75rem;color:#888;letter-spacing:0.1em;margin-top:1.5rem;text-transform:uppercase}
+    /* Organic clip-path cards */
+    .organic-card{background:rgba(15,15,15,0.9);border:1px solid rgba(255,255,255,0.06);padding:2.5rem;max-width:550px;width:100%;position:relative;clip-path:polygon(0 3%,2% 0,98% 0,100% 4%,100% 96%,98% 100%,3% 100%,0 97%);transition:clip-path 0.5s cubic-bezier(0.16,1,0.3,1)}
+    .organic-card:hover{clip-path:polygon(0 0,0 0,100% 0,100% 0,100% 100%,100% 100%,0 100%,0 100%)}
+    .section-label{font-family:'Geist Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.15em;color:#f6821f;margin-bottom:0.8rem}
+    .section-heading{font-size:1.8rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:1rem}
+    .exp-item{padding:0.8rem 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+    .exp-item h3{font-size:0.9rem;font-weight:600}
+    .exp-item p{font-family:'Geist Mono',monospace;font-size:0.65rem;color:#666;margin-top:0.15rem}
+    .project-link{display:block;padding:0.8rem;margin-top:0.5rem;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:#f0f0f0;transition:all 0.4s;clip-path:polygon(0 0,96% 0,100% 15%,100% 100%,4% 100%,0 85%)}
+    .project-link:hover{border-color:#f6821f;color:#f6821f;clip-path:polygon(0 0,100% 0,100% 0,100% 100%,0 100%,0 100%)}
+    .project-link small{font-family:'Geist Mono',monospace;font-size:0.6rem;color:#666}
+    .tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem}
+    .tag{font-family:'Geist Mono',monospace;font-size:0.6rem;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.08);color:#888;border-radius:20px;transition:all 0.3s}
+    .tag:hover{background:rgba(246,130,31,0.1);border-color:#f6821f;color:#f6821f}
+    .tag.ai{border-color:rgba(200,80,192,0.3);color:#c850c0}
+    .tag.ai:hover{background:rgba(200,80,192,0.1)}
+    .contact-link{display:block;padding:0.7rem;margin-top:0.5rem;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:#f0f0f0;transition:all 0.3s}
+    .contact-link:hover{border-color:#c850c0;color:#c850c0}
+    /* Color accent changes per section */
+    section:nth-child(3) .section-label{color:#c850c0}
+    section:nth-child(4) .section-label{color:#4158d0}
+    section:nth-child(5) .section-label{color:#10b981}
+  </style>
+</head>
+<body>
+  <VersionsNav current="/collage" accent="#c850c0" />
+
+  <section>
+    <div class="blob blob-1" style="background:linear-gradient(135deg,#f6821f,#c850c0)"></div>
+    <div class="blob blob-2" style="background:linear-gradient(135deg,#4158d0,#c850c0)"></div>
+    <div class="hero-mask">
+      <h1 class="hero-name">Enrique<br/>Ríos</h1>
+      <p class="hero-sub">Senior Tech Engineer → AI Engineer</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="organic-card">
+      <div class="section-label">Experiencia</div>
+      <h2 class="section-heading">Donde he trabajado</h2>
+      <div class="exp-item"><h3>Senior Tech Engineer</h3><p>Allfunds Bank - 2024-Presente</p></div>
+      <div class="exp-item"><h3>Senior Developer</h3><p>Tenant Evaluation - 2021-2024</p></div>
+      <div class="exp-item"><h3>Mobile/Backend Dev</h3><p>Grupo AL - 2015-2021</p></div>
+      <div class="exp-item"><h3>ABAP Developer</h3><p>CEMOSA - 2014-2015</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="organic-card">
+      <div class="section-label">Proyectos</div>
+      <h2 class="section-heading">Side projects</h2>
+      <a href="https://github.com/EnriqueRS/travelmap" target="_blank" class="project-link">TravelMap <small>SvelteKit + NestJS + PostGIS</small></a>
+      <a href="https://github.com/EnriqueRS/runapp" target="_blank" class="project-link">RunApp <small>Next.js + PostgreSQL</small></a>
+      <a href="https://github.com/EnriqueRS/antimolebot" target="_blank" class="project-link">AntimoleBot <small>Hono + Cloudflare Workers</small></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="organic-card">
+      <div class="section-label">Tech Stack</div>
+      <h2 class="section-heading">Tecnologías</h2>
+      <div class="tags">
+        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Python</span>
+        <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Docker</span>
+        <span class="tag">K8s</span><span class="tag">AWS</span><span class="tag">PostgreSQL</span>
+      </div>
+      <div class="tags" style="margin-top:0.8rem">
+        <span class="tag ai">LLM</span><span class="tag ai">AI Agents</span><span class="tag ai">RAG</span>
+        <span class="tag ai">LangChain</span><span class="tag ai">MLOps</span><span class="tag ai">Vector DB</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="organic-card">
+      <div class="section-label">Contacto</div>
+      <h2 class="section-heading">Hablemos</h2>
+      <a href="https://github.com/EnriqueRS" target="_blank" class="contact-link">GitHub</a>
+      <a href="https://www.linkedin.com/in/enrique-rios-santos-906666b" target="_blank" class="contact-link">LinkedIn</a>
+      <a href="mailto:enriquers85@gmail.com" class="contact-link">enriquers85@gmail.com</a>
+    </div>
+  </section>
+
+  <script define:vars={{en,es}}>
+    let currentLang=localStorage.getItem('lang')||'es';
+    document.getElementById('lang-toggle').textContent=currentLang==='en'?'ES':'EN';
+    document.getElementById('lang-toggle').addEventListener('click',()=>{
+      currentLang=currentLang==='en'?'es':'en';localStorage.setItem('lang',currentLang);
+      document.getElementById('lang-toggle').textContent=currentLang==='en'?'ES':'EN';
+    });
+  </script>
+</body>
+</html>
